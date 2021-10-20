@@ -1,0 +1,25 @@
+﻿@model IEnumerable<TEST_ASP_APP.Models.Store>
+@{
+    ViewBag.Title = "Все магазины";
+}
+<h1>Магазины</h1>
+<a asp-action="Create">Добавить магазин</a>
+<table class="table">
+    <tr>
+        <td>Название магазина</td>
+        <td>Адрес</td>
+        <td>Время открытия</td>
+        <td>Время закрытия</td>
+        <td>Список товаров</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Adress</td>
+            <td>@item.Opening_Time</td>
+            <td>@item.Closing_Time</td>
+            <td><a asp-action="ProductsIndex" asp-route-storeid="@item.StoreId">Открыть</a></td>
+        </tr>
+     }
+</table>
